@@ -25,16 +25,16 @@
 
 [Nest](https://github.com/nestjs/nest) framework TypeScript starter repository.
 
-## Project setup
+## Project setup + Kafka setup
 
 ```bash
 $ npm install
 ```
-
-## Kafka setup
-
 ```bash
 $ docker compose up -d
+```
+```bash
+$ npm run start:dev
 ```
 
 ## Compile and run the project
