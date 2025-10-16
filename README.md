@@ -29,13 +29,14 @@
 
 ```bash
 $ npm install
-```
-```bash
+
 $ docker compose up -d
-```
-```bash
+
 $ npm run start:dev
+
+
 ```
+
 
 ## Compile and run the project
 
@@ -49,6 +50,14 @@ $ npm run start:dev
 # production mode
 $ npm run start:prod
 ```
+
+Go to postman:
+- endpoint: http://localhost:3000/donations
+- body:
+  {
+    "userId": "123",
+    "amount": 50
+  }
 
 ## Run tests
 
