@@ -31,6 +31,12 @@
 $ npm install
 ```
 
+## Kafka setup
+
+```bash
+$ docker compose up -d
+```
+
 ## Compile and run the project
 
 ```bash
@@ -56,6 +62,7 @@ $ npm run test:e2e
 # test coverage
 $ npm run test:cov
 ```
+
 
 ## Deployment
 
