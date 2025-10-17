@@ -4,13 +4,13 @@ import { MembershipRepository } from '../../infrastructure/adapters/out/membersh
 import { Membership } from '../../domain/entities/membership.entity';
 
 @Injectable()
-export class ActivateMembershipService implements ActivateMembershipPortIn {
+export class ActivateMembershipUseCase implements ActivateMembershipPortIn {
   constructor(
     @Inject('MembershipRepositoryPort')
     private readonly membershipRepository: MembershipRepository,
   ) {}
 
-  private readonly logger = new Logger(ActivateMembershipService.name);
+  private readonly logger = new Logger(ActivateMembershipUseCase.name);
 
   async activate(donationId: string, userId: string): Promise<void> {
     this.logger.debug(

@@ -1,16 +1,16 @@
 import { Module } from '@nestjs/common';
 import { DonationsController } from './infrastructure/adapters/in/donations.controller';
 import { DonationKafkaEventAdapter } from './infrastructure/adapters/out/donation-kafka-event.adapter';
-import { CreateDonationService } from './application/use-cases/create-donation.service';
+import { CreateDonationUseCase } from './application/use-cases/create-donation.usecase';
 
 @Module({
   controllers: [DonationsController],
   providers: [
     DonationKafkaEventAdapter,
-    CreateDonationService,
+    CreateDonationUseCase,
     {
       provide: 'CreateDonationPort',
-      useClass: CreateDonationService,
+      useClass: CreateDonationUseCase,
     },
     {
       provide: 'DonationEventPublisherPort',

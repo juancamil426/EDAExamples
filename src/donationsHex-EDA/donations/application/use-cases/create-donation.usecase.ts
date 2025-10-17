@@ -5,7 +5,7 @@ import { Donation } from '../../domain/entities/donation.entity';
 import { DonationCreatedEvent } from '../../domain/events/donation-created.event';
 
 @Injectable()
-export class CreateDonationService implements CreateDonationPort {
+export class CreateDonationUseCase implements CreateDonationPort {
   constructor(
     @Inject('DonationEventPublisherPort')
     private readonly eventPublisher: DonationEventPublisherPort,

@@ -10,7 +10,7 @@ import { DonationCreatedEvent } from '../../../../donations/domain/events/donati
 
 @Injectable()
 export class MembershipKafkaConsumerAdapter
-  implements EventSubscriberPort, OnModuleInit
+  implements EventSubscriberPort<DonationCreatedEvent>, OnModuleInit
 {
   private readonly logger = new Logger(MembershipKafkaConsumerAdapter.name);
   private readonly kafka = new Kafka({ brokers: ['localhost:9092'] });
@@ -33,12 +33,12 @@ export class MembershipKafkaConsumerAdapter
           message.value?.toString() || '',
         );
         this.logger.debug(`Received event: ${JSON.stringify(event)}`);
-        await this.onDonationCreated(event);
+        await this.handle(event);
       },
     });
   }
 
-  async onDonationCreated(event: DonationCreatedEvent): Promise<void> {
+  async handle(event: DonationCreatedEvent): Promise<void> {
     await this.activateMembershipPortIn.activate(
       event.donationId,
       event.userId,

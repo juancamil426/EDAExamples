@@ -1,6 +1,6 @@
 import { Module } from '@nestjs/common';
 import { MembershipKafkaConsumerAdapter } from './infrastructure/adapters/in/membership-kafka-consumer.adapter';
-import { ActivateMembershipService } from './application/use-cases/activate-membership.service';
+import { ActivateMembershipUseCase } from './application/use-cases/activate-membership.usecase';
 import { MembershipRepository } from './infrastructure/adapters/out/membership.repository';
 import { ActivateMembershipPortIn } from './application/ports/in/activate-membership.port';
 
@@ -13,7 +13,7 @@ import { ActivateMembershipPortIn } from './application/ports/in/activate-member
     },
     {
       provide: 'ActivateMembershipPortIn',
-      useClass: ActivateMembershipService,
+      useClass: ActivateMembershipUseCase,
     },
     {
       provide: 'EventSubscriberPort',
